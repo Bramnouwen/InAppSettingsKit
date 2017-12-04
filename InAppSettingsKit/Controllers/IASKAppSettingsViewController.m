@@ -599,7 +599,17 @@ CGRect IASKCGRectSwap(CGRect rect);
 		}
 		IASKTextField *textField = ((IASKPSTextFieldSpecifierViewCell*)cell).textField;
 		textField.text = textValue;
-		textField.placeholder = specifier.placeholder;
+		
+		// TriMeter values
+		// Color for attributed string
+		UIColor *color = [UIColor whiteColor]; // select needed color
+		NSString *string = specifier.placeholder; // the string to colorize
+		NSDictionary *attrs = @{ NSForegroundColorAttributeName : color };
+		NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:string attributes:attrs];
+			textField.attributedPlaceholder = attrStr;
+		textField.textColor = [UIColor whiteColor];
+		// END TriMeter values
+		
 		textField.key = specifier.key;
 		textField.delegate = self;
 		textField.secureTextEntry = [specifier isSecure];
