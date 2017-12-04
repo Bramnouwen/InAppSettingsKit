@@ -48,6 +48,14 @@
     _tableView.dataSource = self;
     
     self.view = _tableView;
+	
+    // TriMeter values
+    // Settings background color
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.09
+                                                     green:0.09
+                                                      blue:0.09
+                                                     alpha:1.0f];
+    // END TriMeter values
 
     _selection = [IASKMultipleValueSelection new];
     _selection.tableView = _tableView;
@@ -125,6 +133,18 @@
 
     @try {
 		[[cell textLabel] setText:[self.settingsReader titleForId:[titles objectAtIndex:indexPath.row]]];
+	// TriMeter values
+        // Settings cell color
+        cell.contentView.backgroundColor = [UIColor colorWithRed:0.11
+                                                           green:0.11
+                                                            blue:0.11
+                                                           alpha:1.0f];
+        cell.backgroundColor = [UIColor colorWithRed:0.11
+                                               green:0.11
+                                                blue:0.11
+                                               alpha:1.0f];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        // END TriMeter values
 	}
 	@catch (NSException * e) {}
     return cell;
